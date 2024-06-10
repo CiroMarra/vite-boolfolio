@@ -2,16 +2,21 @@
 export default {
     name: 'ProjectCard',
     props: {
-        projectDetails: Object
+        projectDetails: {
+            type: Object,
+            required: true
+        }
     },
     methods: {
         truncateText(text) {
-            if(text.length > 100) {
+            if (text.length > 100) {
                 return text.substr(0, 99) + '...';
             }
-
             return text;
         }
+    },
+    mounted() {
+
     }
 }
 </script>
@@ -22,8 +27,11 @@ export default {
             <!-- <img src="..." class="card-img-top" alt="..."> -->
             <div class="card-body">
                 <h5 class="card-title">{{ projectDetails.name }}</h5>
+                <div v-if="projectDetails.type">
+                    <strong>Tipo</strong>: <span>{{ projectDetails.type.name }}</span>
+                </div>
                 <p class="card-text">{{ truncateText(projectDetails.summary) }}</p>
-                 <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
             </div>
         </div>
     </div>
