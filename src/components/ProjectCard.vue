@@ -31,7 +31,7 @@ export default {
                     <strong>Tipo</strong>: <span>{{ projectDetails.type.name }}</span>
                 </div>
                 <p class="card-text">{{ truncateText(projectDetails.summary) }}</p>
-                <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                <router-link :to="{ name: 'single-project', params: {slug: projectDetails.slug } }" class="btn btn-primary">Dettagli</router-link>
             </div>
         </div>
     </div>

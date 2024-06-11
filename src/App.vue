@@ -1,11 +1,20 @@
-<script setup>
-import ProjectList from './components/ProjectList.vue';
+<script>
+import ProjectList from './pages/ProjectList.vue';
+import AppHeader from './components/AppHeader.vue';
+
+export default {
+  components: {
+    AppHeader,
+    ProjectList
+  }
+}
 </script>
 
 <template>
-  <ProjectList />
+  <AppHeader></AppHeader>
+  <router-view></router-view>
 </template>
 
-<style scoped>
-
+<style lang="scss">
+@use './style/generic';
 </style>
